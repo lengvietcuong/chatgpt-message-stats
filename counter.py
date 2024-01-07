@@ -58,7 +58,7 @@ def count(conversations_file: Path, result_file: Path) -> dict:
             counter["chars"][sender] += len(message_content)
 
     for field, stats in counter.items():
-        counter[field]["Total"] = sum(stats.values())
+        counter[field]["total"] = sum(stats.values())
 
     with open(result_file, "w") as file:
         json.dump(counter, file, indent=4)
