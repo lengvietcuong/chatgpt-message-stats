@@ -20,3 +20,5 @@ pip install -r requirements.txt
 ## Usage
 1. Move your downloaded data file to the `data` folder in the project directory (no need to unzip).
 2. Run `counter.py` and enjoy!
+
+![sample-stats](screenshots/sample-stats.png)
