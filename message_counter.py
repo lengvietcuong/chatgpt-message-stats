@@ -54,8 +54,14 @@ class MessageCounter:
                     sender = "ChatGPT"
                 else:
                     continue  # Ignore 'system' messages
+                
+                if "parts" not in message_details["content"]:
+                    continue  # Ignore custom instructions
 
                 message_content = message_details["content"]["parts"][0]
+                if not isinstance(message_content, str):
+                    continue  # Ignore non-text messages
+
                 counter["messages"][sender] += 1
                 counter["words"][sender] += len(message_content.split())
                 counter["tokens"][sender] += self.count_tokens(message_content)
